@@ -1,1425 +1,800 @@
 <!DOCTYPE html>
-  
 <html lang="en">
-  
 <head>
-  
     <meta charset="UTF-8">
-  
     <!-- 1. SEO & Accessibility -->
-  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
     <meta name="description" content="Fintracester Inc. provides professional compliance audits, manuals, and financial tracking solutions for MSBs, crypto, and high-risk entities.">
-  
     <meta name="keywords" content="compliance, audit, MSB, crypto, AML, CTF, financial, manuals, Fintracester">
-  
     <meta name="author" content="Fintracester Inc.">
-  
     <title>Fintracester Inc. | Financial Tracking Solutions</title>
-  
     <!-- 2. Google Fonts for better typography -->
-  
     <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
-  
     <!-- 3. Favicon (replace with your logo if available) -->
-  
     <link rel="icon" type="image/png" href="favicon.png">
-  
     <style>
-  
         body {
-  
             background: #0c5192 url('blui.jpeg') no-repeat center center fixed;
-  
             background-size: 100% 100%;
-  
             background-repeat: no-repeat;
-  
             background-position: center center;
-  
             color: #fff;
-  
             font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  
             font-size: 16px;
-  
             margin: 0;
-  
             min-height: 100vh;
-  
         }
-  
         header {
-  
             background: rgba(0,0,0,0.35);
-  
             padding: 32px 0 16px 0;
-  
             border-bottom: 1px solid #1a3960;
-  
         }
-  
         .container {
-  
             width: 90%;
-  
             max-width: 1200px;
-  
             margin: 0 auto;
-  
         }
-  
         h1 {
-  
             margin: 0;
-  
             font-size: 3em;
-  
             letter-spacing: 2px;
-  
             font-weight: 700;
-  
             text-shadow: 0 2px 8px rgba(0,0,0,0.18);
-  
             display: flex;
-  
             align-items: center;
-  
             gap: 16px;
-  
         }
-  
         .logo {
-  
             display: none !important;
-  
         }
-  
         nav {
-  
             display: flex;
-  
             flex-wrap: wrap;
-  
             gap: 0;
-  
             align-items: center;
-  
             margin-top: 8px;
-  
         }
-  
         nav a, .popup-btn {
-  
             color: #fff;
-  
             text-decoration: none;
-  
             font-weight: 600;
-  
             font-size: 1.1em;
-  
             background: none;
-  
             border: none;
-  
             cursor: pointer;
-  
             padding: 0 4px;
-  
             transition: color 0.2s;
-  
             position: relative;
-  
             overflow: hidden;
-  
         }
-  
         nav a::after, .popup-btn::after {
-  
             content: '';
-  
             display: block;
-  
             position: absolute;
-  
             left: 0; right: 0; bottom: -2px;
-  
             height: 2px;
-  
             background: #aad8ff;
-  
             border-radius: 2px;
-  
             transform: scaleX(0);
-  
             transition: transform 0.25s cubic-bezier(.4,1.4,.6,1);
-  
         }
-  
         nav a:hover::after, .popup-btn:hover::after {
-  
             transform: scaleX(1);
-  
         }
-  
         nav a:focus, .popup-btn:focus {
-  
             outline: 2px solid #aad8ff;
-  
             outline-offset: 2px;
-  
         }
-  
         nav a:hover, .popup-btn:hover {
-  
             color: #aad8ff;
-  
         }
-  
         .nav-sep {
-  
             color: #aad8ff;
-  
             margin: 0 12px;
-  
             font-weight: bold;
-  
             font-size: 1.2em;
-  
             user-select: none;
-  
         }
-  
         .popup {
-  
             position: relative;
-  
             display: inline-block;
-  
         }
-  
         .popup-content {
-  
             display: none;
-  
             position: absolute;
-  
             top: 120%;
-  
             left: 50%;
-  
             transform: translateX(-50%);
-  
             min-width: 260px;
-  
             background: #1a3960;
-  
             color: #fff;
-  
             border-radius: 8px;
-  
             box-shadow: 0 8px 24px rgba(0,0,0,0.18);
-  
             padding: 18px 22px;
-  
             z-index: 100;
-  
             font-size: 1em;
-  
             animation: fadeIn 0.25s;
-  
         }
-  
         .popup-content.show {
-  
             display: block;
-  
         }
-  
         .popup-content address {
-  
             font-style: normal;
-  
             color: #fff;
-  
             font-size: 0.98em;
-  
         }
-  
         .popup-content a {
-  
             color: #aad8ff;
-  
             text-decoration: underline;
-  
         }
-  
         .demo-btn {
-  
             border: 2px solid #fff;
-  
             border-radius: 6px;
-  
             padding: 8px 18px;
-  
             background: rgba(255,255,255,0.07);
-  
             font-size: 1.05em;
-  
             font-weight: bold;
-  
             color: #fff;
-  
             cursor: pointer;
-  
             transition: background 0.2s, color 0.2s;
-  
             margin-left: 32px;
-  
         }
-  
         .demo-btn:hover {
-  
             background: #aad8ff;
-  
             color: #0c5192;
-  
         }
-  
         /* Footer styles */
-  
         footer {
-  
             background: rgba(0,0,0,0.25);
-  
             color: #aad8ff;
-  
             text-align: center;
-  
             padding: 24px 8px 12px 8px;
-  
             font-size: 1em;
-  
             margin-top: 48px;
-  
             border-top: 1px solid #1a3960;
-  
             box-shadow: 0 -2px 8px rgba(12,81,146,0.10);
-  
+            border-radius: 5px 5px 0 0;
         }
-  
         .footer-links {
-  
             margin-bottom: 8px;
-  
         }
-  
         .footer-links a {
-  
             color: #aad8ff;
-  
             margin: 0 10px;
-  
             text-decoration: underline;
-  
             font-weight: 500;
-  
             transition: color 0.18s;
-  
         }
-  
         .footer-links a:hover {
-  
             color: #fff;
-  
         }
-  
-        /* Add to your <style> section */
-  
-        /* filepath: e:\ICTHW3\fintracester.html */
-  
         .login-fab {
-  
             margin-left: 12px;
-  
             width: 44px;
-  
             height: 44px;
-  
             border-radius: 50%;
-  
             background: transparent;
-  
             border: none;
-  
             box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-  
             cursor: pointer;
-  
             z-index: 10001;
-  
             display: flex;
-  
             align-items: center;
-  
             justify-content: center;
-  
             transition: box-shadow 0.2s, background 0.2s;
-  
             padding: 0;
-  
         }
-  
         .login-fab:hover, .login-fab:focus {
-  
             background: rgba(170,216,255,0.18);
-  
             box-shadow: 0 8px 24px rgba(0,0,0,0.22);
-  
             outline: none;
-  
         }
-  
         .auth-popup {
-  
             display: none;
-  
             position: fixed;
-  
             top: 0; left: 0; right: 0; bottom: 0;
-  
             z-index: 20000;
-  
             background: rgba(12,81,146,0.7);
-  
             align-items: center;
-  
             justify-content: center;
-  
         }
-  
         .auth-popup-content {
-  
             background: #1a3960;
-  
             border-radius: 10px;
-  
             box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-  
             padding: 28px 32px 24px 32px;
-  
             min-width: 320px;
-  
             max-width: 95vw;
-  
             color: #fff;
-  
             position: relative;
-  
             animation: fadeIn 0.25s;
-  
             box-sizing: border-box;
-  
         }
-  
         .auth-close {
-  
             position: absolute;
-  
             top: 10px;
-  
             right: 14px;
-  
             background: none;
-  
             border: none;
-  
             color: #aad8ff;
-  
             font-size: 1.6em;
-  
             cursor: pointer;
-  
         }
-  
         .auth-tabs {
-  
             display: flex;
-  
             gap: 8px;
-  
             margin-bottom: 18px;
-  
         }
-  
         .auth-tab {
-  
             background: none;
-  
             border: none;
-  
             color: #aad8ff;
-  
             font-size: 1.1em;
-  
             font-weight: bold;
-  
             cursor: pointer;
-  
             padding: 6px 18px;
-  
             border-radius: 6px 6px 0 0;
-  
             transition: background 0.2s, color 0.2s;
-  
         }
-  
         .auth-tab.active {
-  
             background: #aad8ff;
-  
             color: #0c5192;
-  
             box-shadow: 0 2px 8px rgba(170,216,255,0.35);
-  
         }
-  
         .auth-tab:not(.active) {
-  
             background: none;
-  
             color: #aad8ff;
-  
             box-shadow: none;
-  
         }
-  
         .auth-form {
-  
             display: flex;
-  
             flex-direction: column;
-  
             gap: 14px;
-  
             animation: fadeInTab 0.35s cubic-bezier(.4,1.4,.6,1);
-  
         }
-  
         .auth-form input, #contactForm input, #contactForm textarea {
-  
             border-radius: 6px;
-  
             border: 1.5px solid #aad8ff;
-  
             background: #0c5192;
-  
             color: #fff;
-  
             font-size: 1em;
-  
             padding: 10px 12px;
-  
             transition: border 0.18s, box-shadow 0.18s;
-  
             box-shadow: 0 1.5px 6px rgba(12,81,146,0.08);
-  
         }
-  
         .auth-form input:focus, #contactForm input:focus, #contactForm textarea:focus {
-  
             border: 1.5px solid #aad8ff;
-  
             outline: none;
-  
             background: #183e6a;
-  
             box-shadow: 0 2px 8px rgba(170,216,255,0.18);
-  
         }
-  
         .auth-action-btn {
-  
             margin-top: 8px;
-  
             padding: 8px 0;
-  
             border-radius: 6px;
-  
             border: none;
-  
             background: #aad8ff;
-  
             color: #0c5192;
-  
             font-weight: bold;
-  
             font-size: 1.1em;
-  
             cursor: pointer;
-  
             transition: background 0.2s, color 0.2s;
-  
         }
-  
         .auth-action-btn:hover {
-  
             background: #fff;
-  
             color: #0c5192;
-  
         }
-  
         .demo-btn, .auth-action-btn, .login-fab {
-  
             transition: 
-  
                 background 0.2s, 
-  
                 color 0.2s, 
-  
                 box-shadow 0.25s cubic-bezier(.4,1.4,.6,1),
-  
                 transform 0.18s cubic-bezier(.4,1.4,.6,1);
-  
         }
-  
         .demo-btn:hover, .auth-action-btn:hover, .login-fab:hover {
-  
             transform: translateY(-2px) scale(1.06);
-  
             box-shadow: 0 8px 32px rgba(170,216,255,0.28);
-  
             background: #aad8ff;
-  
             color: #0c5192;
-  
         }
-  
         /* Material-style elevation for popups and cards */
-  
         .popup-content,
-  
         .auth-popup-content {
-  
             border-radius: 14px;
-  
             box-shadow: 0 8px 32px rgba(12,81,146,0.18), 0 1.5px 6px rgba(0,0,0,0.10);
-  
             animation: fadeInScale 0.32s cubic-bezier(.4,1.4,.6,1);
-  
             background: #1a3960;
-  
             color: #fff;
-  
             transition: box-shadow 0.25s, background 0.25s;
-  
         }
-  
 
-  
         /* Buttons: more padding, shadow, ripple-like hover */
-  
         .demo-btn, .auth-action-btn, .login-fab {
-  
             border-radius: 8px;
-  
             box-shadow: 0 2px 8px rgba(12,81,146,0.10);
-  
             transition: 
-  
                 background 0.2s, 
-  
                 color 0.2s, 
-  
                 box-shadow 0.25s cubic-bezier(.4,1.4,.6,1),
-  
                 transform 0.18s cubic-bezier(.4,1.4,.6,1);
-  
             position: relative;
-  
             overflow: hidden;
-  
         }
-  
         .demo-btn:hover, .auth-action-btn:hover, .login-fab:hover {
-  
             transform: translateY(-2px) scale(1.06);
-  
             box-shadow: 0 8px 32px rgba(170,216,255,0.28);
-  
             background: #aad8ff;
-  
             color: #0c5192;
-  
         }
-  
         details[open] > summary {
-  
             color: #aad8ff;
-  
             font-weight: bold;
-  
             transition: color 0.2s;
-  
         }
-  
         details > summary {
-  
             cursor: pointer;
-  
             transition: color 0.2s;
-  
             outline: none;
-  
             border-radius: 6px;
-  
             padding: 4px 0;
-  
         }
-  
         details[open] > *:not(summary) {
-  
             animation: fadeInTab 0.35s cubic-bezier(.4,1.4,.6,1);
-  
         }
-  
         @keyframes fadeIn {
-  
             from {opacity: 0;}
-  
             to {opacity: 1;}
-  
         }
-  
         @keyframes fadeInTab {
-  
             from { opacity: 0; transform: translateY(16px);}
-  
             to { opacity: 1; transform: none;}
-  
         }
-  
         @media (max-width: 900px) {
-  
             h1 {
-  
                 font-size: 2em;
-  
             }
-  
             .container {
-  
                 width: 98%;
-  
             }
-  
             nav {
-  
                 flex-wrap: wrap;
-  
                 gap: 8px;
-  
             }
-  
             .demo-btn {
-  
                 margin-left: 0;
-  
                 margin-top: 16px;
-  
             }
-  
         }
-  
         @media (max-width: 600px) {
-  
             header {
-  
-                padding: 18px 0 10px 0;
-  
+                padding: 22px 0 12px 0;
+                border-radius: 0 0 22px 22px;
             }
-  
             nav {
-  
                 flex-direction: column;
-  
                 align-items: flex-start;
-  
                 gap: 10px;
-  
+                border-radius: 10px;
+                padding: 8px 6px;
             }
-  
             .nav-sep {
-  
                 display: none;
-  
             }
-  
             .demo-btn {
-  
                 margin-top: 12px;
-  
             }
-  
+            h1 {
+                font-size: 2em;
+                border-radius: 12px;
+            }
         }
-  
         @media (max-width: 700px) {
-  
             .popup-content {
-  
                 position: fixed !important;
-  
                 left: 0;
-  
                 right: 0;
-  
-                top: 110px; /* Always starts below header/nav/demo */
-  
                 bottom: 0;
-  
+                top: auto;
                 min-width: unset;
-  
                 max-width: unset;
-  
                 width: 100vw;
-  
                 border-radius: 18px 18px 0 0;
-  
-                box-shadow: 0 -2px 24px rgba(0,0,0,0.25);
-  
+                box-shadow: 0 -8px 32px rgba(12,81,146,0.18), 0 -1.5px 6px rgba(0,0,0,0.10);
                 padding: 28px 6vw 32px 6vw;
-  
                 font-size: 1.08em;
-  
                 line-height: 1.6;
-  
                 word-break: break-word;
-  
                 white-space: pre-line;
-  
                 overflow-wrap: break-word;
-  
-                animation: slideUp 0.3s;
-  
-                z-index: 10002;
-  
                 background: #183e6a;
-  
-                transform: none !important;
-  
+                color: #fff;
+                z-index: 10002;
                 display: none;
-  
                 overflow-y: auto;
-  
-                max-height: calc(100vh - 110px); /* Never covers nav or demo button */
-  
+                max-height: calc(100vh - 110px);
+                animation: drawerSlideUp 0.38s cubic-bezier(.4,1.4,.6,1);
+                box-sizing: border-box;
+                transform: translateY(100%);
+                opacity: 0;
+                transition: transform 0.38s cubic-bezier(.4,1.4,.6,1), opacity 0.28s;
             }
-  
             .popup-content.show {
-  
                 display: block !important;
-  
+                transform: translateY(0);
+                opacity: 1;
+                animation: drawerSlideUp 0.38s cubic-bezier(.4,1.4,.6,1);
             }
-  
             .popup {
-  
                 position: static !important;
-  
             }
-  
-            @keyframes slideUp {
-  
-                from { transform: translateY(100%);}
-  
-                to { transform: translateY(0);}
-  
+            @keyframes drawerSlideUp {
+                from {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
             }
-  
         }
-  
+        /* Animation styles */
+        .animation-container {
+            position: relative;
+            width: 90%;
+            max-width: 700px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 48px auto; /* Center and add vertical space */
+            padding: 20px;
+            background: rgba(26, 57, 96, 0);
+            border-radius: 14px;
+            box-shadow: 0 8px 32px rgba(12,81,146,0.18);
+            box-sizing: border-box;
+        }
+
+        .word {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ecf0f1;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            animation-duration: 9s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        #word1 { animation-name: reveal-word1; }
+        #word2 { animation-name: reveal-word2; }
+        #word3 { animation-name: reveal-word3; }
+
+        .ball {
+            position: absolute;
+            left: -30px; /* Start just outside the container */
+            width: 60px;
+            height: 60px;
+            top: 50%;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            animation: move-ball 9s linear infinite, change-color 9s linear infinite;
+        }
+
+        @keyframes move-ball {
+            0% { left: -30px; }
+            100% { left: calc(100% - 30px); }
+        }
+
+        @keyframes change-color {
+            0%   { background-color: #e74c3c; box-shadow: 0 0 20px #e74c3c; }
+            25%  { background-color: #f1c40f; box-shadow: 0 0 20px #f1c40f; }
+            50%  { background-color: #2ecc71; box-shadow: 0 0 20px #2ecc71; }
+            75%  { background-color: #3498db; box-shadow: 0 0 20px #3498db; }
+            100% { background-color: #e74c3c; box-shadow: 0 0 20px #e74c3c; }
+        }
+
+        @keyframes reveal-word1 { 18%, 33% { opacity: 1; transform: scale(1.1); } 0%, 17%, 34%, 100% { opacity: 0; transform: scale(1); } }
+        @keyframes reveal-word2 { 48%, 63% { opacity: 1; transform: scale(1.1); } 0%, 47%, 64%, 100% { opacity: 0; transform: scale(1); } }
+        @keyframes reveal-word3 { 78%, 93% { opacity: 1; transform: scale(1.1); } 0%, 77%, 94%, 100% { opacity: 0; transform: scale(1); } }
     </style>
-  
+    </head>
+    
+    <body>
+
+    </style>
 </head>
-  
 <body>
-  
     <header>
-  
         <div class="container" style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap;">
-  
             <h1 style="display: flex; align-items: center; gap: 12px;">
-  
                 FINTRACESTER INC.
-  
                 <button class="login-fab" id="loginBtn" title="Login / Sign Up" aria-label="Login or Sign Up">
-  
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-  
                         <circle cx="16" cy="16" r="16" fill="#aad8ff"/>
-  
                         <path d="M16 16c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.33 0-10 1.667-10 5v2h20v-2c0-3.333-6.67-5-10-5z" fill="#0c5192"/>
-  
                     </svg>
-  
                 </button>
-  
             </h1>
-  
             <nav aria-label="Main navigation">
-  
                 <a href="index.html">Home</a>
-  
                 <span class="nav-sep">|</span>
-  
                 <div class="popup" style="display:inline;">
-  
                     <button class="popup-btn" data-popup="about" aria-haspopup="true" aria-controls="popup-about" aria-expanded="false">About us</button>
-  
                     <div class="popup-content" id="popup-about" role="dialog" tabindex="-1">
-  
                         We specialize in compliance audits for:<br>
-  
                         Money Service Businesses (MSBs)<br>
-  
                         Crypto platforms<br>
-  
                         High-risk financial entities<br>
-  
                         Institutions requiring enhanced AML/CTF regulatory support<br>
-  
                         <br>
-  
                         We offer:<br>
-  
                         Audit guidelines<br>
-  
                         Internal policies<br>
-  
                         Document templates<br>
-  
                         Comprehensive checklists
-  
                     </div>
-  
                 </div>
-  
                 <span class="nav-sep">|</span>
-  
                 <div class="popup" style="display:inline;">
-  
                     <button class="popup-btn" data-popup="manuals" aria-haspopup="true" aria-controls="popup-manuals" aria-expanded="false">Manuals</button>
-  
                     <div class="popup-content" id="popup-manuals" role="dialog" tabindex="-1">
-  
                         Access user guides, setup instructions, and troubleshooting resources.
-  
                     </div>
-  
                 </div>
-  
                 <span class="nav-sep">|</span>
-  
                 <div class="popup" style="display:inline;">
-  
                     <button class="popup-btn" data-popup="contacts" aria-haspopup="true" aria-controls="popup-contacts" aria-expanded="false">Contacts</button>
-  
                     <div class="popup-content" id="popup-contacts" role="dialog" tabindex="-1">
-  
                         <address>
-  
                             <strong>FINTRACESTER INC.</strong><br>
-  
                             House 22, Road 3<br>
-  
                             Nirala Residential Area<br>
-  
                             Khulna 9100<br>
-  
                             Bangladesh<br>
-  
                             <abbr title="Phone" style="text-decoration:none; color:#fff;">P:</abbr> +880-1711-200774<br>
-  
                             <abbr title="Phone" style="text-decoration:none; color:#fff;">P:</abbr> +880-1752-170689<br>
-  
                             <abbr title="Phone" style="text-decoration:none; color:#fff;">P:</abbr> +880-1891-780533<br>
-  
                             <abbr title="Email" style="text-decoration:none; color:#fff;">E:</abbr> <a href="mailto:romel.sharif@gmail.com">romel.sharif@gmail.com</a><br>
-  
                             <i>Md Romel Sharif, MBM, CAMS, CFCS, CCI, CBSE  CEO, Fintracester Incorporated</i>
-  
                         </address>
-  
                     </div>
-  
                 </div>
-  
                 <button class="demo-btn" id="demoBtn">START A DEMO</button>
-  
             </nav>
-  
         </div>
-  
     </header>
-  
     <main class="container" id="main-content">
-  
         <!-- 5. Content Sections -->
-  
         <section>
-  
             <h2>Our Services</h2>
-  
             <ul>
-  
                 <li>Compliance Audits for MSBs, Crypto, and High-Risk Entities</li>
-  
                 <li>AML/CTF Policy Development</li>
-  
                 <li>Regulatory Reporting Assistance</li>
-  
                 <li>Staff Training & Certification</li>
-  
             </ul>
-  
         </section>
-  
         <section>
-  
             <h2>Testimonials</h2>
-  
             <blockquote>
-  
                 "Fintracester helped us pass our audit with flying colors. Highly recommended!"<br>
-  
                 <cite>- Satisfied Client</cite>
-  
             </blockquote>
-  
         </section>
-  
         <section>
-  
             <h2>Partners</h2>
-  
             <p>We collaborate with leading compliance and financial technology firms worldwide.</p>
-  
         </section>
-  
         <section>
-  
             <h2>FAQ</h2>
-  
             <details>
-  
                 <summary>What is an MSB?</summary>
-  
                 <p>A Money Service Business (MSB) is a legal term used by financial regulators to describe businesses that transmit or convert money.</p>
-  
             </details>
-  
             <details>
-  
                 <summary>How do I start a compliance audit?</summary>
-  
                 <p>Contact us using the form below or email us directly. We'll guide you through the process.</p>
-  
             </details>
-  
         </section>
-  
         <!-- 6. Contact Form -->
-  
         <section>
-  
             <h2>Contact Us</h2>
-  
             <form id="contactForm" action="mailto:romel.sharif@gmail.com" method="POST" enctype="text/plain" style="max-width:400px;">
-  
                 <label for="contactName">Name</label>
-  
                 <input type="text" id="contactName" name="Name" required autocomplete="name" style="width:100%;margin-bottom:12px;">
-  
                 <label for="contactEmail">Email</label>
-  
                 <input type="email" id="contactEmail" name="Email" required autocomplete="email" style="width:100%;margin-bottom:12px;">
-  
                 <label for="contactMsg">Message</label>
-  
                 <textarea id="contactMsg" name="Message" rows="4" required style="width:100%;margin-bottom:16px;"></textarea>
-  
                 <button type="submit" class="auth-action-btn" style="width:100%;">Send</button>
-  
             </form>
-  
             <p style="margin-top:18px;color:#aad8ff;font-size:0.98em;">
-  
                 Or email us directly at <a href="mailto:romel.sharif@gmail.com" style="color:#aad8ff;text-decoration:underline;">romel.sharif@gmail.com</a>
-  
             </p>
-  
         </section>
-  
     </main>
-  
-
-  
-    <!-- 9. Footer -->
-  
-    <footer>
-  
-        <div class="footer-links">
-  
-            <a href="#main-content">Back to Top</a> |
-  
-            <a href="privacy.html">Privacy Policy</a> |
-  
-            <a href="terms.html">Terms of Service</a>
-  
-        </div>
-  
-        &copy; <span id="year"></span> Fintracester Inc. All rights reserved.
-  
-    </footer>
-  
-
-  
-    <!-- 10. Analytics (Google Analytics example, replace with your own ID) -->
-  
-    <!--
-  
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
-  
-    <script>
-  
-      window.dataLayer = window.dataLayer || [];
-  
-      function gtag(){dataLayer.push(arguments);}
-  
-      gtag('js', new Date());
-  
-      gtag('config', 'UA-XXXXXXX-X');
-  
-    </script>
-  
-    -->
-  
-
-  
-    <!-- filepath: e:\ICTHW3\fintracester.html -->
-  
-    <div class="auth-popup" id="authPopup" aria-modal="true" role="dialog">
-  
-        <div class="auth-popup-content">
-  
-            <button class="auth-close" id="authCloseBtn" title="Close" aria-label="Close">&times;</button>
-  
-            <div class="auth-tabs">
-  
-                <button class="auth-tab active" id="loginTab" aria-selected="true">Login</button>
-  
-                <button class="auth-tab" id="signupTab" aria-selected="false">Sign Up</button>
-  
-            </div>
-  
-            <form id="loginForm" class="auth-form" autocomplete="off">
-  
-                <h2>Login</h2>
-  
-                <label for="loginEmail">Email</label>
-  
-                <input id="loginEmail" type="email" required autocomplete="username">
-  
-                <label for="loginPassword">Password</label>
-  
-                <input id="loginPassword" type="password" required autocomplete="current-password">
-  
-                <button type="submit" class="auth-action-btn">Login</button>
-  
-            </form>
-  
-            <form id="signupForm" class="auth-form" style="display:none;" autocomplete="off">
-  
-                <h2>Sign Up</h2>
-  
-                <label for="signupName">Name</label>
-  
-                <input id="signupName" type="text" required>
-  
-                <label for="signupEmail">Email</label>
-  
-                <input id="signupEmail" type="email" required autocomplete="username">
-  
-                <label for="signupPassword">Password</label>
-  
-                <input id="signupPassword" type="password" required autocomplete="new-password">
-  
-                <button type="submit" class="auth-action-btn">Sign Up</button>
-  
-            </form>
-  
-        </div>
-  
+    <!-- Animation Section -->
+    <div class="animation-container">
+        <span class="word" id="word1">KNOWS</span>
+        <span class="word" id="word2">TRACES</span>
+        <span class="word" id="word3">PROTECTS</span>
+        <div class="ball"></div>
     </div>
-  
+    <!-- 9. Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#main-content">Back to Top</a> |
+            <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms.html">Terms of Service</a>
+        </div>
+        &copy; <span id="year"></span> Fintracester Inc. All rights reserved.
+    </footer>
 
-  
+    <!-- 10. Analytics (Google Analytics example, replace with your own ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXX-X"></script>
     <script>
-  
-        // 11. Professional popup logic: only one open at a time, close on outside click
-  
-        document.addEventListener('DOMContentLoaded', function() {
-  
-            const popups = document.querySelectorAll('.popup-btn');
-  
-            let openPopup = null;
-  
-
-  
-            popups.forEach(btn => {
-  
-                btn.addEventListener('click', function(e) {
-  
-                    e.stopPropagation();
-  
-                    const popupId = 'popup-' + btn.dataset.popup;
-  
-                    const popupContent = document.getElementById(popupId);
-  
-
-  
-                    // Close any open popup except this one
-  
-                    document.querySelectorAll('.popup-content.show').forEach(p => {
-  
-                        if (p !== popupContent) p.classList.remove('show');
-  
-                    });
-  
-
-  
-                    // Toggle this popup
-  
-                    popupContent.classList.toggle('show');
-  
-                    openPopup = popupContent.classList.contains('show') ? popupContent : null;
-  
-                });
-  
-            });
-  
-
-  
-            // Close popups when clicking outside
-  
-            document.addEventListener('click', function(e) {
-  
-                if (openPopup && !openPopup.parentElement.contains(e.target)) {
-  
-                    openPopup.classList.remove('show');
-  
-                    openPopup = null;
-  
-                }
-  
-            });
-  
-
-  
-            // Optional: close popup on ESC key
-  
-            document.addEventListener('keydown', function(e) {
-  
-                if (e.key === 'Escape' && openPopup) {
-  
-                    openPopup.classList.remove('show');
-  
-                    openPopup = null;
-  
-                }
-  
-            });
-  
-
-  
-            // Contact form validation (basic, for demo)
-  
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-  
-                e.preventDefault();
-  
-                alert('Thank you for contacting us! We will reply soon.');
-  
-                this.reset();
-  
-            });
-  
-
-  
-            // Set footer year
-  
-            document.getElementById('year').textContent = new Date().getFullYear();
-  
-
-  
-            // Login/Sign Up popup logic
-  
-            const loginBtn = document.getElementById('loginBtn');
-  
-            const authPopup = document.getElementById('authPopup');
-  
-            const authCloseBtn = document.getElementById('authCloseBtn');
-  
-            const loginTab = document.getElementById('loginTab');
-  
-            const signupTab = document.getElementById('signupTab');
-  
-            const loginForm = document.getElementById('loginForm');
-  
-            const signupForm = document.getElementById('signupForm');
-  
-
-  
-            // Show popup
-  
-            loginBtn.addEventListener('click', function(e) {
-  
-                e.stopPropagation();
-  
-                authPopup.style.display = 'flex';
-  
-                loginTab.classList.add('active');
-  
-                signupTab.classList.remove('active');
-  
-                loginForm.style.display = '';
-  
-                signupForm.style.display = 'none';
-  
-                loginTab.setAttribute('aria-selected', 'true');
-  
-                signupTab.setAttribute('aria-selected', 'false');
-  
-                setTimeout(() => {
-  
-                    loginForm.querySelector('input').focus();
-  
-                }, 100);
-  
-            });
-  
-
-  
-            // Close popup
-  
-            authCloseBtn.addEventListener('click', function() {
-  
-                authPopup.style.display = 'none';
-  
-            });
-  
-
-  
-            // Switch tabs
-  
-            loginTab.addEventListener('click', function() {
-  
-                loginTab.classList.add('active');
-  
-                signupTab.classList.remove('active');
-  
-                loginForm.style.display = '';
-  
-                signupForm.style.display = 'none';
-  
-                loginTab.setAttribute('aria-selected', 'true');
-  
-                signupTab.setAttribute('aria-selected', 'false');
-  
-                loginForm.querySelector('input').focus();
-  
-            });
-  
-            signupTab.addEventListener('click', function() {
-  
-                signupTab.classList.add('active');
-  
-                loginTab.classList.remove('active');
-  
-                signupForm.style.display = '';
-  
-                loginForm.style.display = 'none';
-  
-                signupTab.setAttribute('aria-selected', 'true');
-  
-                loginTab.setAttribute('aria-selected', 'false');
-  
-                signupForm.querySelector('input').focus();
-  
-            });
-  
-
-  
-            // Close popup when clicking outside
-  
-            document.addEventListener('click', function(e) {
-  
-                if (
-  
-                    authPopup.style.display === 'flex' &&
-  
-                    !authPopup.contains(e.target) &&
-  
-                    e.target !== loginBtn
-  
-                ) {
-  
-                    authPopup.style.display = 'none';
-  
-                }
-  
-            });
-  
-
-  
-            // Prevent click inside popup from closing it
-  
-            authPopup.addEventListener('click', function(e) {
-  
-                e.stopPropagation();
-  
-            });
-  
-
-  
-            // Prevent form submission (demo only)
-  
-            loginForm.addEventListener('submit', function(e) {
-  
-                e.preventDefault();
-  
-                alert('Login submitted!');
-  
-                authPopup.style.display = 'none';
-  
-            });
-  
-            signupForm.addEventListener('submit', function(e) {
-  
-                e.preventDefault();
-  
-                alert('Sign Up submitted!');
-  
-                authPopup.style.display = 'none';
-  
-            });
-  
-        });
-  
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-XXXXXXX-X');
     </script>
-  
+    -->
+
+    <div class="auth-popup" id="authPopup" aria-modal="true" role="dialog">
+        <div class="auth-popup-content">
+            <button class="auth-close" id="authCloseBtn" title="Close" aria-label="Close">&times;</button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab" aria-selected="true">Login</button>
+                <button class="auth-tab" id="signupTab" aria-selected="false">Sign Up</button>
+            </div>
+            <form id="loginForm" class="auth-form" autocomplete="off">
+                <h2>Login</h2>
+                <label for="loginEmail">Email</label>
+                <input id="loginEmail" type="email" required autocomplete="username">
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" type="password" required autocomplete="current-password">
+                <button type="submit" class="auth-action-btn">Login</button>
+            </form>
+            <form id="signupForm" class="auth-form" style="display:none;" autocomplete="off">
+                <h2>Sign Up</h2>
+                <label for="signupName">Name</label>
+                <input id="signupName" type="text" required>
+                <label for="signupEmail">Email</label>
+                <input id="signupEmail" type="email" required autocomplete="username">
+                <label for="signupPassword">Password</label>
+                <input id="signupPassword" type="password" required autocomplete="new-password">
+                <button type="submit" class="auth-action-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 11. Professional popup logic: only one open at a time, close on outside click
+        document.addEventListener('DOMContentLoaded', function() {
+            const popups = document.querySelectorAll('.popup-btn');
+            let openPopup = null;
+
+            popups.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const popupId = 'popup-' + btn.dataset.popup;
+                    const popupContent = document.getElementById(popupId);
+
+                    // Close any open popup except this one
+                    document.querySelectorAll('.popup-content.show').forEach(p => {
+                        if (p !== popupContent) p.classList.remove('show');
+                    });
+
+                    // Toggle this popup
+                    popupContent.classList.toggle('show');
+                    openPopup = popupContent.classList.contains('show') ? popupContent : null;
+                });
+            });
+
+            // Close popups when clicking outside
+            document.addEventListener('click', function(e) {
+                if (openPopup && !openPopup.parentElement.contains(e.target)) {
+                    openPopup.classList.remove('show');
+                    openPopup = null;
+                }
+            });
+
+            // Optional: close popup on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && openPopup) {
+                    openPopup.classList.remove('show');
+                    openPopup = null;
+                }
+            });
+
+            // Contact form validation (basic, for demo)
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for contacting us! We will reply soon.');
+                this.reset();
+            });
+
+            // Set footer year
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Login/Sign Up popup logic
+            const loginBtn = document.getElementById('loginBtn');
+            const authPopup = document.getElementById('authPopup');
+            const authCloseBtn = document.getElementById('authCloseBtn');
+            const loginTab = document.getElementById('loginTab');
+            const signupTab = document.getElementById('signupTab');
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+
+            // Show popup
+            loginBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                authPopup.style.display = 'flex';
+                loginTab.classList.add('active');
+                signupTab.classList.remove('active');
+                loginForm.style.display = '';
+                signupForm.style.display = 'none';
+                loginTab.setAttribute('aria-selected', 'true');
+                signupTab.setAttribute('aria-selected', 'false');
+                setTimeout(() => {
+                    loginForm.querySelector('input').focus();
+                }, 100);
+            });
+
+            // Close popup
+            authCloseBtn.addEventListener('click', function() {
+                authPopup.style.display = 'none';
+            });
+
+            // Switch tabs
+            loginTab.addEventListener('click', function() {
+                loginTab.classList.add('active');
+                signupTab.classList.remove('active');
+                loginForm.style.display = '';
+                signupForm.style.display = 'none';
+                loginTab.setAttribute('aria-selected', 'true');
+                signupTab.setAttribute('aria-selected', 'false');
+                loginForm.querySelector('input').focus();
+            });
+            signupTab.addEventListener('click', function() {
+                signupTab.classList.add('active');
+                loginTab.classList.remove('active');
+                signupForm.style.display = '';
+                loginForm.style.display = 'none';
+                signupTab.setAttribute('aria-selected', 'true');
+                loginTab.setAttribute('aria-selected', 'false');
+                signupForm.querySelector('input').focus();
+            });
+
+            // Close popup when clicking outside
+            document.addEventListener('click', function(e) {
+                if (
+                    authPopup.style.display === 'flex' &&
+                    !authPopup.contains(e.target) &&
+                    e.target !== loginBtn
+                ) {
+                    authPopup.style.display = 'none';
+                }
+            });
+
+            // Prevent click inside popup from closing it
+            authPopup.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+            // Prevent form submission (demo only)
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Login submitted!');
+                authPopup.style.display = 'none';
+            });
+            signupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Sign Up submitted!');
+                authPopup.style.display = 'none';
+            });
+        });
+    </script>
 </body>
-  
 </html>
